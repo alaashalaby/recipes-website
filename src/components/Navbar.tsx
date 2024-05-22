@@ -18,7 +18,7 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <Box as="nav" position="relative">
+    <Box as="nav" position="sticky" top="0" zIndex="999" bg="#fff" shadow="sm" >
       <Container
         maxW="7xl"
         display="flex"
