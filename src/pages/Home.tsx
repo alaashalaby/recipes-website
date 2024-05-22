@@ -1,13 +1,18 @@
-import Header from "../components/Header"
-import Navbar from "../components/Navbar"
-
+import AboutUs from "../components/AboutUs";
+import ChefList from "../components/ChefList";
+import Header from "../components/Header";
+import LatestRecipes from "../components/LatestRecipes";
+import Recipes from "../components/Recipes";
 const Home = () => {
   return (
     <>
-          <Navbar />
-          <Header/>
+      <Header />
+      <AboutUs />
+      <LatestRecipes />
+      <ChefList/>
+      <Recipes />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
