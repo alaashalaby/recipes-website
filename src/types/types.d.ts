@@ -63,3 +63,10 @@ interface LatestRecipesProps {
 interface Meals {
   meals: Meal[];
 }
+
+interface Chef {
+  id: number;
+  name: string;
+  specialty: string;
+  imageUrl: string;
+}
