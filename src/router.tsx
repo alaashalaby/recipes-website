@@ -1,14 +1,16 @@
+/* eslint-disable react-refresh/only-export-components */
 import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Home from "./pages/Home";
-import Recipes from "./pages/Recipes";
-import Categories from "./pages/Categories";
-import ContactUs from "./pages/ContactUs";
+import { lazy } from "react";
 import Layout from "./layout/Layout";
-import Details from "./pages/Details";
+const Home = lazy(() => import("./pages/Home"));
+const Recipes = lazy(() => import("./pages/Recipes"));
+const Categories = lazy(() => import("./pages/Categories"));
+const ContactUs = lazy(() => import("./pages/ContactUs"));
+const Details = lazy(() => import("./pages/Details"));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,9 +18,9 @@ const router = createBrowserRouter(
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/recipes" element={<Recipes />} />
-        <Route path="/categories" element={<Categories />} />
+        <Route path="/categories/:categoryName" element={<Categories />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/details/:id" element={<Details />}/>
+        <Route path="/details/:id" element={<Details />} />
       </Route>
     </>
   )
