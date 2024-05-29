@@ -10,7 +10,7 @@ export const getLatestRecipes = createAsyncThunk(
   async () => {
     const response = await fetch("http://localhost:3000/latestMeals");
     if (!response.ok) {
-      throw new Error("Failed to fetch data");
+      throw new Error("Failed to Fetch Data");
     }
     // return (await response.json()) as Meal[];
     const data = await response.json();
@@ -24,6 +24,7 @@ const latestRecipesSlice = createSlice({
   extraReducers(builder) {
     builder.addCase(getLatestRecipes.pending, (state) => {
       state.loading = true;
+      state.error = null;
     });
     builder.addCase(
       getLatestRecipes.fulfilled,
