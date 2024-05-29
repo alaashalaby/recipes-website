@@ -28,7 +28,7 @@ const AboutUsImages = () => {
       }}
     >
       <Box flex={1}>
-        <Image src={AboutImage} alt="about us image" />
+        <Image src={AboutImage} alt="about us image" w="100%" />
       </Box>
       <Flex
         flex={1}
@@ -50,14 +50,14 @@ const AboutUsContent = () => {
   return (
     <Box mt={{ base: "1", lg: "3" }}>
       <Text color="#f89223" mb={2}>
-        Thatix Introduction
+        Recipes Introduction
       </Text>
       <Heading
         as="h3"
         fontWeight="bold"
         fontSize={{ base: "2xl", lg: "5xl" }}
         mb={{ base: "2", lg: "5" }}
-        color="2e2f31"
+        color="#2e2f31"
       >
         Give yourself a lifetime of cooking confidence
       </Heading>
@@ -84,7 +84,7 @@ const AboutUsContent = () => {
 };
 const AboutUs = () => {
   return (
-    <Container maxW="7xl" mt={9} pt={4}>
+    <Container maxW="7xl" mt={{ base: 4, md: 4, lg: 7 }} pt={4}>
       <SimpleGrid gap={{ base: "4", lg: "9" }} columns={{ base: 1, md: 2 }}>
         <AboutUsImages />
         <AboutUsContent />
