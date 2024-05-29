@@ -18,7 +18,7 @@ const Footer = () => {
   return (
     <Box as="footer" bgImage={FooterBG} filter="invert(1)" py={9}>
       <Container maxW="7xl">
-        <SimpleGrid columns={[1, 2, 3]} spacing={6}>
+        <SimpleGrid columns={[1, 1, 3]} spacing={6}>
           <Box>
             <RouterLink to="/">
               <Image src={logo} alt="recipe-logo" filter="invert(1)" />
@@ -29,7 +29,7 @@ const Footer = () => {
               quibusdam quos aut?
             </Text>
           </Box>
-          <Flex flexDir="column" align={{base:"flex-start",lg:"center"}}>
+          <Flex flexDir="column" align={{ base: "flex-start", lg: "center" }}>
             <Heading fontSize="xl" mb={5}>
               Explore
             </Heading>
@@ -51,9 +51,6 @@ const Footer = () => {
               </ListItem>
               <ListItem>
                 <RouterLink to="/recipes">Recipes</RouterLink>
-              </ListItem>
-              <ListItem>
-                <RouterLink to="/categories">Categories</RouterLink>
               </ListItem>
               <ListItem>
                 <RouterLink to="contact-us">Contact Us</RouterLink>
@@ -79,13 +76,13 @@ const Footer = () => {
               <ListItem mb={4}>
                 <Link href="#">
                   <BiMap color="#f89223" filter="invert(1)" /> 787 Mark View
-                  Street, New Town, California
+                  Street, New Town
                 </Link>
               </ListItem>
               <ListItem mb={4}>
-                <Link href="mailto:needhelp@thatix.com">
+                <Link href="mailto:needhelp@gmail.com">
                   <BiMailSend color="#f89223" filter="invert(1)" />
-                  needhelp@thatix.com
+                  needhelp@gmail.com
                 </Link>
               </ListItem>
               <ListItem mb={4}>
