@@ -1,4 +1,5 @@
 import AboutUs from "../components/AboutUs";
+import CategoriesWrapper from "../components/CategoriesWrapper";
 import ChefList from "../components/ChefList";
 import Header from "../components/Header";
 import LatestRecipes from "../components/LatestRecipes";
@@ -11,6 +12,7 @@ const Home = () => {
       <LatestRecipes />
       <ChefList/>
       <Recipes />
+      <CategoriesWrapper/>
     </>
   );
 };
