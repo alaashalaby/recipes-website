@@ -70,3 +70,20 @@ interface Chef {
   specialty: string;
   imageUrl: string;
 }
+interface Category {
+  idCategory: string;
+  strCategory: string;
+  strCategoryThumb: string;
+  strCategoryDescription: string;
+}
+interface CategoryResponse {
+  categories: Category[];
+}
+interface CategoryMeal {
+  strMeal: string;
+  strMealThumb: string;
+  idMeal: string;
+}
+interface CategoryMealResponse {
+  meals: Meal[];
+}
