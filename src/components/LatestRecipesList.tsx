@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import LatestRecipeItem from "./LatestRecipeItem";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { useEffect } from "react";
 import { getLatestRecipes } from "../RTK/features/latest-recipes/latestRecipesSlice";
 import { Link } from "react-router-dom";
+import RecipeSkeleton from "./RecipeSkeleton";
 
 const settings = {
   dots: false,
@@ -45,7 +46,9 @@ const settings = {
   ],
 };
 const LatestRecipesList = () => {
-  const { meals } = useAppSelector((state) => state.latestRecipesReducer);
+  const { meals, loading, error } = useAppSelector(
+    (state) => state.latestRecipesReducer
+  );
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getLatestRecipes());
@@ -60,16 +63,31 @@ const LatestRecipesList = () => {
         },
       }}
     >
-      <Slider {...settings}>
-        {meals &&
-          meals.map((recipe) => (
-            <Link to={`/details/${recipe.idMeal}`}>
-              <Box p={2} key={recipe.idMeal}>
-                <LatestRecipeItem recipe={recipe} />
-              </Box>
-            </Link>
+      {loading ? (
+        <Slider {...settings}>
+          {Array.from({ length: 8 }).map((_, index) => (
+            <RecipeSkeleton key={index} />
           ))}
-      </Slider>
+        </Slider>
+      ) : error ? (
+        <Text color="red" fontSize="2xl" textAlign="center">
+          {error}
+        </Text>
+      ) : (
+        !loading &&
+        !error &&
+        meals && (
+          <Slider {...settings}>
+            {meals.map((recipe) => (
+              <Link to={`/details/${recipe.idMeal}`} key={recipe.idMeal}>
+                <Box p={2} key={recipe.idMeal}>
+                  <LatestRecipeItem recipe={recipe} />
+                </Box>
+              </Link>
+            ))}
+          </Slider>
+        )
+      )}
     </Box>
   );
 };
