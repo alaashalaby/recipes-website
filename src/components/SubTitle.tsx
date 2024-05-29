@@ -7,7 +7,7 @@ const SubTitle = ({subTitle,title}:Props) => {
   return (
     <Box textAlign="center" my={2}>
           <Text color="#f89223" mb={2}>{ subTitle}</Text>
-          <Heading as="h3" size="2xl" color="#2e2f31">{ title}</Heading>
+          <Heading as="h3" fontSize="3xl" color="#2e2f31">{ title}</Heading>
     </Box>
   );
 }
