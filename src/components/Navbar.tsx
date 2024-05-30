@@ -12,7 +12,7 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import logo from "../assets/logo.png";
-import { BiBookmark, BiMenu, BiMoon, BiX } from "react-icons/bi";
+import { BiBookmark, BiMenu, BiX } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import CustomDrawer from "./CustomDrawer";
@@ -122,7 +122,7 @@ const Navbar = () => {
           </ListItem>
         </List>
         <Box>
-          <IconButton
+          {/* <IconButton
             aria-label="Toggle Theme"
             variant="none"
             fontSize="2xl"
@@ -131,7 +131,7 @@ const Navbar = () => {
             color="#f89233"
             borderRadius="full"
             icon={<BiMoon />}
-          />
+          /> */}
           <CustomDrawer
             title="Your Saved Recipes"
             isOpen={isOpen}
