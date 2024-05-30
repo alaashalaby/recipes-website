@@ -1,5 +1,5 @@
 import Banner from "../components/Banner";
-import bannerImg from "../assets/2.jpg";
+import bannerImg from "../assets/header_img2.jpg";
 import { BiChevronRight, BiMenu } from "react-icons/bi";
 import {
   Box,
