@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useGetAllRecipesQuery } from "../RTK/services/recipes";
 import Banner from "../components/Banner";
-import bannerImg from "../assets/subheader.jpg";
+import bannerImg from "../assets/subheader.webp";
 import { BiChevronRight, BiSearch } from "react-icons/bi";
 import FoodBG from "../assets/pattern.jpg";
 import {
