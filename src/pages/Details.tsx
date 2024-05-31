@@ -26,7 +26,7 @@ const DetailsContent = ({ recipeDetails }: { recipeDetails: Meal }) => {
   const instructions = parseInstructions(recipeDetails?.strInstructions)
   console.log(instructions)
   return (
-    <Flex flexDirection="column" gap={3} flex="1">
+    <Flex flexDirection="column" gap={3} flex="1" ps={{base:5,md:5,lg:8}}>
       <Flex align="center" justifyContent="space-between" mb={1}>
         <Heading as="h4" color="secondary.800" fontSize="3xl">
           {recipeDetails?.strMeal}
@@ -37,7 +37,7 @@ const DetailsContent = ({ recipeDetails }: { recipeDetails: Meal }) => {
           </Link>
         </Button>
       </Flex>
-      <List>
+      <List listStyleType="initial">
         {instructions && instructions.map((instruction, index) => <ListItem key={index} mb="1" color="secondary.800" fontWeight="600">{ instruction}</ListItem>)}
       </List>
       <List
