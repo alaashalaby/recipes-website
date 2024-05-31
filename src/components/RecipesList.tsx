@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const RecipesList = () => {
   const { data, isLoading, isSuccess } = useGetAllRecipesQuery("");
   return (
-    <Container maxW="7xl" mt={9} py={7}>
+    <Container maxW="7xl" mt={4} py={7}>
       <SimpleGrid columns={[1, 2, 3, 4]} spacing={4}>
         {isLoading || !isSuccess
           ? Array.from({ length: 8 }).map((_, index) => (
@@ -21,12 +21,10 @@ const RecipesList = () => {
       </SimpleGrid>
       <Link to="/recipes" style={{ display: "flex" }}>
         <Button
-          bg="#f89223"
           w="fit-content"
           m="1.1em auto 0"
           transition="all 0.4s ease"
           _hover={{ opacity: "0.8" }}
-          color="#fff"
         >
           Show More
         </Button>

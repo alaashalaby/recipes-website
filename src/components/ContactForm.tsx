@@ -74,34 +74,37 @@ const ContactForm = () => {
     <Flex
       flexDirection="column"
       gap={3}
+      flex={{base:"1",md:"0.5"}}
       p={3}
       as="form"
       onSubmit={handleSubmit(onSubmit)}
     >
       <HStack spacing={3} flexWrap={{ base: "wrap", md: "wrap", lg: "nowrap" }}>
         <FormControl isInvalid={!!errors?.name}>
-          <FormLabel htmlFor="Name" color="#f89223">
+          <FormLabel htmlFor="Name" color="primary.500">
             Name
           </FormLabel>
           <Input
             type="text"
             placeholder="Enter Your Name"
             {...register("name")}
-            border="1px solid #f89223"
+            border="1px solid"
+            borderColor="primary.500"
           />
           <FormErrorMessage>
             {errors.name && errors.name.message}
           </FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={!!errors?.email}>
-          <FormLabel htmlFor="email" color="#f89223">
+          <FormLabel htmlFor="email" color="primary.500">
             Email
           </FormLabel>
           <Input
             type="email"
             placeholder="Enter Your Email"
             {...register("email")}
-            border="1px solid #f89223"
+            border="1px solid"
+            borderColor="primary.500"
           />
           <FormErrorMessage>
             {errors.email && errors.email.message}
@@ -109,7 +112,7 @@ const ContactForm = () => {
         </FormControl>
       </HStack>
       <FormControl isInvalid={!!errors?.message}>
-        <FormLabel htmlFor="message" color="#f89223">
+        <FormLabel htmlFor="message" color="primary.500">
           Message
         </FormLabel>
         <Textarea
@@ -117,7 +120,8 @@ const ContactForm = () => {
           placeholder="Enter Your Message..."
           {...register("message")}
           id="message"
-          border="1px solid #f89223"
+          border="1px solid"
+          borderColor="primary.500"
         />
         <FormErrorMessage>
           {errors.message && errors.message.message}
@@ -125,12 +129,9 @@ const ContactForm = () => {
       </FormControl>
       <Button
         type="submit"
-        bg="#f89223"
         w="fit-content"
-        transition="all 0.4s ease"
-        _hover={{ opacity: "0.8" }}
-        mt={{ base: "1", lg: "4" }}
-        color="#fff"
+        _hover={{ opacity: "0.9" }}
+        mt={{ base: "1", lg: "3" }}
         isLoading={isLoading}
       >
         Send Message

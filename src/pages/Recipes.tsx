@@ -34,8 +34,8 @@ const SearchBox = ({ searchTerm, setSearchTerm, handleSubmit }: Props) => {
         <InputRightElement
           as="button"
           type="submit"
-          bg="#f89223"
-          color="#fff"
+          bg="primary.500"
+          color="secondary.50"
           fontSize="xl"
           borderRadius="0 20px 20px 0"
         >
@@ -44,8 +44,6 @@ const SearchBox = ({ searchTerm, setSearchTerm, handleSubmit }: Props) => {
         <Input
           type="text"
           placeholder="Search By Recipe Name..."
-          border="1px solid #f59223"
-          rounded="full"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -62,6 +60,12 @@ const RecipesContainer = ({ searchTerm }: { searchTerm: string }) => {
   const length = data?.meals?.length as number;
   const totalPages = Math.ceil(length / itemsPerPage);
   const displayedRecipes = data?.meals?.slice(startIndex, endIndex);
+  useEffect(() => {
+    setCurrentPage(1)
+  },[searchTerm])
+  useEffect(() => {
+    window.scrollTo({top:0,behavior:"smooth"})
+  },[currentPage])
   return (
     <>
       <SimpleGrid columns={[1, 2, 3, 5]} spacing={4} my={6}>
@@ -75,11 +79,14 @@ const RecipesContainer = ({ searchTerm }: { searchTerm: string }) => {
           </Text>
         ) : (
           displayedRecipes &&
-          displayedRecipes.map((recipe) => <RecipeCard recipe={recipe} key={recipe.idMeal}/>)
+          displayedRecipes.map((recipe) => (
+            <RecipeCard recipe={recipe} key={recipe.idMeal} />
+          ))
         )}
       </SimpleGrid>
       <HStack mt={4} justify="center">
         <Button
+          bg="secondary.200"
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           isDisabled={currentPage === 1}
         >
@@ -88,8 +95,7 @@ const RecipesContainer = ({ searchTerm }: { searchTerm: string }) => {
         {Array.from({ length: totalPages }).map((_, index) => (
           <Button
             key={index}
-            bg={currentPage === index + 1 ? "#f89223" : "#ddd"}
-            color="#fff"
+            bg={currentPage === index + 1 ? "primary.500" : "secondary.100"}
             p="5px 10px"
             fontSize="xl"
             cursor="pointer"
@@ -99,6 +105,7 @@ const RecipesContainer = ({ searchTerm }: { searchTerm: string }) => {
           </Button>
         ))}
         <Button
+          bg="secondary.200"
           onClick={() =>
             setCurrentPage((prev) => Math.min(prev + 1, totalPages))
           }

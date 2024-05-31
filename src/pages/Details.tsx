@@ -21,10 +21,10 @@ import DetailsSkeleton from "../components/DetailsSkeleton";
 const DetailsContent = ({ recipeDetails }: { recipeDetails: Meal }) => {
   return (
     <Flex flexDirection="column" gap={3} flex="1">
-      <Heading as="h4" color="#2e2f31" fontSize="3xl">
+      <Heading as="h4" color="secondary.800" fontSize="3xl">
         {recipeDetails?.strMeal}
       </Heading>
-      <Text color="#2e2f31">{recipeDetails?.strInstructions}</Text>
+      <Text color="secondary.800">{recipeDetails?.strInstructions}</Text>
       <List
         display="flex"
         alignItems="center"
@@ -33,8 +33,9 @@ const DetailsContent = ({ recipeDetails }: { recipeDetails: Meal }) => {
         mt={3}
         sx={{
           li: {
-            color: "#2e2f31",
-            border: "1px solid #f89223",
+            color: "secondary.800",
+            border: "1px solid",
+            borderColor:"primary.500",
             p: "2",
             borderRadius: "md",
             letterSpacing: "2px",
@@ -80,10 +81,10 @@ const DetailsContent = ({ recipeDetails }: { recipeDetails: Meal }) => {
 const SubHeader = ({ title }: { title: string }) => {
   return (
     <Flex align="center" gap={3}>
-      <Heading as="h5" color="#101111" fontSize="xl">
+      <Heading as="h5" color="secondary.800" fontSize="xl">
         {title}
       </Heading>
-      <Divider borderColor="#101111" lineHeight="0" mt={2} />
+      <Divider borderColor="secondary.800" lineHeight="0" mt={1} />
     </Flex>
   );
 };
@@ -97,7 +98,7 @@ const Details = () => {
   return (
     <>
       <Banner bannerImg={bannerImg}>
-        <Heading as="h1" zIndex={5} color="#fff">
+        <Heading as="h1" zIndex={5} color="secondary.50">
           Recipe Details
         </Heading>
       </Banner>
@@ -153,8 +154,8 @@ const Details = () => {
                     return (
                       <ListItem
                         key={index}
-                        bg="#f89223"
-                        color="#fff"
+                        bg="primary.500"
+                        color="secondary.50"
                         p={2}
                         borderRadius="md"
                       >

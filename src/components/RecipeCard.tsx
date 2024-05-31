@@ -17,7 +17,7 @@ const RecipeCard = ({ recipe }: { recipe: Meal }) => {
     });
   };
   return (
-    <Box borderRadius="xl" shadow="md" padding={4} bg="#fff3e5">
+    <Box borderRadius="xl" shadow="md" padding={4} bg="primary.50">
       <Box position="relative" overflow="hidden">
         <Image
           src={recipe.strMealThumb}
@@ -32,7 +32,7 @@ const RecipeCard = ({ recipe }: { recipe: Meal }) => {
           variant="none"
           fontSize="2xl"
           bg="#fff"
-          color="#f89233"
+          color="primary.500"
           position="absolute"
           top={2}
           right={1}
@@ -41,17 +41,15 @@ const RecipeCard = ({ recipe }: { recipe: Meal }) => {
         </Button>
       </Box>
       <Box textAlign="center" mt={3}>
-        <Heading as="h3" fontSize="xl" fontWeight="medium" noOfLines={1} mb={2}>
+        <Heading as="h3" fontSize="xl" noOfLines={1} mb={2} color="secondary.800">
           {recipe.strMeal}
         </Heading>
         <Link to={`/details/${recipe.idMeal}`} key={recipe.idMeal}>
           <Button
-            bg="#f89223"
             w="fit-content"
             m="auto"
             transition="all 0.4s ease"
             _hover={{ opacity: "0.8" }}
-            color="#fff"
           >
             Show Details
           </Button>

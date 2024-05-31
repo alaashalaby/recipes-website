@@ -31,7 +31,7 @@ const SavedItem = ({ recipe }: { recipe: Meal }) => {
       p={2}
       align="center"
       borderRadius="lg"
-      bg="#fde5ca"
+      bg="primary.50"
     >
       <Image
         src={recipe?.strMealThumb}
@@ -40,7 +40,7 @@ const SavedItem = ({ recipe }: { recipe: Meal }) => {
         height="60px"
         borderRadius="lg"
       />
-      <Box sx={{ "*": { color: "#101111" } }}>
+      <Box sx={{ "*": { color: "secondary.700" } }}>
         <Heading fontSize="lg" mb={1}>
           {recipe?.strMeal}
         </Heading>
@@ -52,8 +52,9 @@ const SavedItem = ({ recipe }: { recipe: Meal }) => {
         aria-label="remove icon"
         variant="none"
         fontSize="2xl"
-        border="1px solid #f89233"
-        color="#f89233"
+        border="1px solid"
+        borderColor="primary.50"
+        color="primary.500"
         borderRadius="full"
         position="absolute"
         top=" -10px"

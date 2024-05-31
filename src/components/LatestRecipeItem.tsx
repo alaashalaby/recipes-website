@@ -21,14 +21,14 @@ const LatestRecipeItem = ({ recipe }: { recipe: Meal }) => {
         <Heading as="h3" fontSize="xl" mb={2}>
           {recipe.strMeal}
         </Heading>
-        <Text noOfLines={2} mb={3} color="#7d7f82" fontSize="md">
+        <Text noOfLines={2} mb={3} color="secondary.700" fontSize="md">
           {recipe.strInstructions}
         </Text>
         <Divider />
         <Flex alignItems="center" justify="space-between" mt={2}>
           <Button
             variant="none"
-            color="#f89223"
+            color="primary.500"
             transition="all 0.5s ease-in-out"
           >
             <BiPurchaseTag />

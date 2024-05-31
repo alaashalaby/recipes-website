@@ -53,7 +53,7 @@ const Navbar = () => {
     setShowMenu(false);
   }, [location]);
   const getNavItem = (path: string) => ({
-    color: currentPath === path ? "#f89223" : "#101111",
+    color: currentPath === path ? "primary.500" : "secondary.900",
     fontWeight: "600",
     position: "relative",
     transition: "all 0.4s ease",
@@ -64,11 +64,11 @@ const Navbar = () => {
       bottom: "-5px",
       width: currentPath === path ? "100%" : "0",
       height: "2px",
-      backgroundColor: "#f89233",
+      backgroundColor: "primary.500",
       transition: "all 0.4s ease",
     },
     ":hover": {
-      color: "#f89233",
+      color: "primary.500",
       "::after": {
         width: "100%",
       },
@@ -127,8 +127,9 @@ const Navbar = () => {
             variant="none"
             fontSize="2xl"
             me={2}
-            border="1px solid #f89233"
-            color="#f89233"
+            border="1px solid"
+            borderColor="primary.500"
+            color="primary.500"
             borderRadius="full"
             icon={<BiMoon />}
           /> */}
@@ -144,25 +145,26 @@ const Navbar = () => {
                 fontSize="2xl"
                 me={2}
                 p={0}
-                border="1px solid #f89233"
-                color="#f89233"
+                border="1px solid"
+                borderColor="primary.500"
+                color="primary.500"
                 borderRadius="full"
                 position="relative"
               >
                 <BiBookmark />
                 <Text
-                  as="span"
                   width="20px"
                   height="20px"
                   borderRadius="50%"
-                  bg="#f89223"
+                  bg="primary.500"
                   color="#fff"
                   position="absolute"
                   right="-5px"
                   top="-9px"
                   lineHeight="17px"
-                  border="1px solid #f89233"
-                  fontSize="md"
+                  border="1px solid"
+                  borderColor="primary.500"
+                  fontSize="sm"
                   textAlign="center"
                 >
                   {recipes.length}
@@ -173,7 +175,7 @@ const Navbar = () => {
             <Flex gap={4} flexDirection="column">
               {recipes.length === 0 ? (
                 <Text
-                  color="#f89233"
+                  color="primary.500"
                   fontWeight="medium"
                   fontSize="lg"
                   textAlign="center"
@@ -193,8 +195,9 @@ const Navbar = () => {
             <IconButton
               aria-label="menu icon"
               icon={showMenu ? <BiX /> : <BiMenu />}
-              border="1px solid #f89233"
-              color="#f89233"
+              border="1px solid"
+              borderColor="primary.500"
+              color="primary.500"
               variant="none"
               fontSize="2xl"
               borderRadius="full"

@@ -32,30 +32,44 @@ export default ChefList;
 
 const Chef = ({chef}:{chef:Chef}) => {
   return (
-    <Box shadow="lg" borderRadius="lg" p={3} _hover={{transform:"translateY(-10px)",cursor:"pointer"}} transition="transform 0.4s ease-in-out">
-      <Image src={chef.imageUrl} alt={chef.name} borderRadius="8px 8px 0 0" h={320} w="100%" objectFit="cover"/>
+    <Box
+      shadow="lg"
+      borderRadius="lg"
+      p={3}
+      _hover={{ transform: "translateY(-10px)", cursor: "pointer" }}
+      transition="transform 0.4s ease-in-out"
+    >
+      <Image
+        src={chef.imageUrl}
+        alt={chef.name}
+        borderRadius="8px 8px 0 0"
+        h={320}
+        w="100%"
+        objectFit="cover"
+      />
       <Box textAlign="center" mt={3}>
-        <Heading as="h4" fontSize="xl" mb={1}>
+        <Heading as="h4" fontSize="xl" mb={1} color="secondary.800">
           {chef.name}
         </Heading>
-        <Text fontSize="sm">{chef.specialty}</Text>
+        <Text fontSize="sm" color="primary.500">{chef.specialty}</Text>
       </Box>
       <Center
         gap={3}
         mt={3}
         sx={{
           a: {
-            color:"#8C8E91",
-            border: "1px solid #EBEBEB;",
+            color: "secondary.400",
+            border: "1px solid",
+            borderColor: "secondary.100",
             borderRadius: "50%",
             fontSize: "lg",
             p: "2",
-            transition:"all 0.5s ease-in-out",
+            transition: "all 0.5s ease-in-out",
             ":hover": {
-              bg: "#f89223",
-              borderColor:"#f89223",
-              color:"#fff"
-            }
+              bg: "primary.500",
+              borderColor: "primary.500",
+              color: "#fff",
+            },
           },
         }}
       >

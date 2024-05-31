@@ -38,6 +38,7 @@ const CategoriesContainer = () => {
   const { data: categories } = useGetCategoriesQuery();
   const handleCategoryClick = (name: string) => {
     setSelectedCategory(name);
+    onClose();
   };
 
   const [isMediumScreen] = useMediaQuery("(min-width: 48em)");
@@ -52,29 +53,33 @@ const CategoriesContainer = () => {
             title="All Categories"
             triggerButton={
               <Button
-                bg="#f89223"
                 rounded="full"
                 p={3}
                 fontWeight="500"
+                _hover={{opacity:"0.9"}}
                 onClick={onOpen}
               >
                 <BiMenu fontSize="1.2em" />
-                <Text ms={2}>All Categories</Text>
+                <Text ms={2} color="secondary.50">
+                  All Categories
+                </Text>
               </Button>
             }
           >
             {categories?.categories?.map((category) => (
               <Link to={`/categories/${category.strCategory}`}>
                 <ListItem
+                  key={category.strCategory}
                   mb={2}
                   fontSize="lg"
                   display="flex"
                   alignItems="center"
                   gap={2}
+                  cursor="pointer"
                   color={
                     categoryName === category.strCategory
-                      ? "#f89223"
-                      : "#101111"
+                      ? "primary.500"
+                      : "secondary.800"
                   }
                   onClick={() => handleCategoryClick(category.strCategory)}
                 >
@@ -94,21 +99,23 @@ const CategoriesContainer = () => {
             shadow="md"
             mt={4}
             p="20px 40px 20px 20px"
-            bg="#fff3e5"
+            bg="primary.50"
             h="fit-content"
           >
             {categories?.categories?.map((category) => (
               <Link to={`/categories/${category.strCategory}`}>
                 <ListItem
+                  key={category.strCategory}
                   mb={2}
                   fontSize="lg"
                   display="flex"
                   alignItems="center"
                   gap={2}
+                  cursor="pointer"
                   color={
-                    categoryName === category.strCategory
-                      ? "#f89223"
-                      : "#101111"
+                    selectedCategory === category.strCategory
+                      ? "primary.500"
+                      : "secondary.800"
                   }
                   onClick={() => handleCategoryClick(category.strCategory)}
                 >

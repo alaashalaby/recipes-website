@@ -49,7 +49,7 @@ const AboutUsImages = () => {
 const AboutUsContent = () => {
   return (
     <Box mt={{ base: "1", lg: "3" }}>
-      <Text color="#f89223" mb={2}>
+      <Text color="primary.500" mb={2} as="span" display="block">
         Recipes Introduction
       </Text>
       <Heading
@@ -57,12 +57,12 @@ const AboutUsContent = () => {
         fontWeight="bold"
         fontSize={{ base: "2xl", lg: "5xl" }}
         mb={{ base: "2", lg: "5" }}
-        color="#2e2f31"
+        color="secondary.800"
       >
         Give yourself a lifetime of cooking confidence
       </Heading>
       <Text
-        color="#7d7f82"
+        color="secondary.600"
         mb={{ base: "2", lg: "5" }}
         lineHeight={{ base: "normal", lg: "1.6" }}
       >
@@ -71,11 +71,9 @@ const AboutUsContent = () => {
         words which don’t look even slightly believable.
       </Text>
       <Button
-        bg="#f89223"
         transition="all 0.4s ease"
         _hover={{ opacity: "0.8" }}
         mt={{ base: "1", lg: "4" }}
-        color="#fff"
       >
         Discover More
       </Button>
