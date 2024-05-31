@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Container,
   Divider,
   Flex,
@@ -8,24 +9,37 @@ import {
   Link,
   List,
   ListItem,
-  SkeletonText,
-  Text,
+  SkeletonText
 } from "@chakra-ui/react";
 import FoodBG from "../assets/pattern.jpg";
 import bannerImg from "../assets/subheader.jpg";
-import { useParams } from "react-router-dom";
-import { BiLinkExternal, BiMenu, BiPurchaseTag, BiWorld } from "react-icons/bi";
+import { useParams,Link as RouterLink } from "react-router-dom";
+import { BiHome, BiLinkExternal, BiMenu, BiPurchaseTag, BiWorld } from "react-icons/bi";
 import { useGetRecipeByIdQuery } from "../RTK/services/recipes";
 import Banner from "../components/Banner";
 import DetailsSkeleton from "../components/DetailsSkeleton";
 import useTitle from "../utils/useTitle";
+const parseInstructions = (instructions: string): string[] => {
+  return instructions.split('.').filter(instruction=>instruction.trim() !== "").map(instruction=>instruction.replace(/^[^a-zA-Z]+/,''))
+}
 const DetailsContent = ({ recipeDetails }: { recipeDetails: Meal }) => {
+  const instructions = parseInstructions(recipeDetails?.strInstructions)
+  console.log(instructions)
   return (
     <Flex flexDirection="column" gap={3} flex="1">
-      <Heading as="h4" color="secondary.800" fontSize="3xl">
-        {recipeDetails?.strMeal}
-      </Heading>
-      <Text color="secondary.800">{recipeDetails?.strInstructions}</Text>
+      <Flex align="center" justifyContent="space-between" mb={1}>
+        <Heading as="h4" color="secondary.800" fontSize="3xl">
+          {recipeDetails?.strMeal}
+        </Heading>
+        <Button _hover={{ opacity: "0.9" }}>
+          <Link as={RouterLink} to="/">
+            <BiHome fontSize="1.5em" />
+          </Link>
+        </Button>
+      </Flex>
+      <List>
+        {instructions && instructions.map((instruction, index) => <ListItem key={index} mb="1" color="secondary.800" fontWeight="600">{ instruction}</ListItem>)}
+      </List>
       <List
         display="flex"
         alignItems="center"
@@ -36,7 +50,7 @@ const DetailsContent = ({ recipeDetails }: { recipeDetails: Meal }) => {
           li: {
             color: "secondary.800",
             border: "1px solid",
-            borderColor:"primary.500",
+            borderColor: "primary.500",
             p: "2",
             borderRadius: "md",
             letterSpacing: "2px",
