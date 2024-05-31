@@ -22,13 +22,12 @@ import {
 } from "../RTK/services/recipes";
 import FoodBG from "../assets/pattern.jpg";
 import RecipeSkeleton from "../components/RecipeSkeleton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CustomDrawer from "../components/CustomDrawer";
 import useTitle from "../utils/useTitle";
 const CategoriesContainer = () => {
   const { categoryName } = useParams();
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   if (!categoryName) {
     throw new Error("Category name is required");
   }
@@ -39,9 +38,17 @@ const CategoriesContainer = () => {
   const { data: categories } = useGetCategoriesQuery();
   const handleCategoryClick = (name: string) => {
     setSelectedCategory(name);
+    // navigate(`/categories/${name}`,{replace:true});
     onClose();
   };
-
+  useEffect(() => {
+    if (categoryName) {
+      setSelectedCategory(categoryName)
+    }
+  },[categoryName])
+  useEffect(() => {
+    window.history.replaceState(null, "", `/categories/${selectedCategory}`);
+  }, [selectedCategory]);
   const [isMediumScreen] = useMediaQuery("(min-width: 48em)");
   const isSmallScreen = !isMediumScreen;
   return (
@@ -57,7 +64,7 @@ const CategoriesContainer = () => {
                 rounded="full"
                 p={3}
                 fontWeight="500"
-                _hover={{opacity:"0.9"}}
+                _hover={{ opacity: "0.9" }}
                 onClick={onOpen}
               >
                 <BiMenu fontSize="1.2em" />
@@ -68,7 +75,6 @@ const CategoriesContainer = () => {
             }
           >
             {categories?.categories?.map((category) => (
-              <Link to={`/categories/${category.strCategory}`}>
                 <ListItem
                   key={category.strCategory}
                   mb={2}
@@ -91,7 +97,6 @@ const CategoriesContainer = () => {
                   />
                   {category.strCategory}
                 </ListItem>
-              </Link>
             ))}
           </CustomDrawer>
         ) : (
@@ -104,30 +109,28 @@ const CategoriesContainer = () => {
             h="fit-content"
           >
             {categories?.categories?.map((category) => (
-              <Link to={`/categories/${category.strCategory}`}>
-                <ListItem
-                  key={category.strCategory}
-                  mb={2}
-                  fontSize="lg"
-                  display="flex"
-                  alignItems="center"
-                  gap={2}
-                  cursor="pointer"
-                  color={
-                    selectedCategory === category.strCategory
-                      ? "primary.500"
-                      : "secondary.800"
-                  }
-                  onClick={() => handleCategoryClick(category.strCategory)}
-                >
-                  <Image
-                    src={category.strCategoryThumb}
-                    alt={category.strCategory}
-                    boxSize={30}
-                  />
-                  {category.strCategory}
-                </ListItem>
-              </Link>
+              <ListItem
+                key={category.strCategory}
+                mb={2}
+                fontSize="lg"
+                display="flex"
+                alignItems="center"
+                gap={2}
+                cursor="pointer"
+                color={
+                  selectedCategory === category.strCategory
+                    ? "primary.500"
+                    : "secondary.800"
+                }
+                onClick={() => handleCategoryClick(category.strCategory)}
+              >
+                <Image
+                  src={category.strCategoryThumb}
+                  alt={category.strCategory}
+                  boxSize={30}
+                />
+                {category.strCategory}
+              </ListItem>
             ))}
           </List>
         )}
@@ -162,7 +165,7 @@ const CategoryItem = ({ recipe }: { recipe: CategoryMeal }) => {
         />
       </Box>
       <Box textAlign="center" mt={3}>
-        <Heading as="h3" fontSize="xl" fontWeight="medium" noOfLines={1} mb={2}>
+        <Heading as="h3" fontSize="xl" noOfLines={1} mb={2}>
           {recipe.strMeal}
         </Heading>
       </Box>
