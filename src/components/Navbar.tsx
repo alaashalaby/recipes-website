@@ -1,31 +1,21 @@
 import {
   Box,
-  Button,
   Container,
-  Flex,
   IconButton,
   Image,
   List,
   ListItem,
-  Text,
-  useDisclosure,
   useMediaQuery,
 } from "@chakra-ui/react";
 import logo from "../assets/logo.png";
-import { BiBookmark, BiMenu, BiX } from "react-icons/bi";
+import { BiMenu, BiX } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import CustomDrawer from "./CustomDrawer";
-import { useAppSelector } from "../app/hooks";
-import SavedItem from "./SavedItem";
+import SavedRecipes from "./SavedRecipes";
 const Navbar = () => {
   const [isMediumScreen] = useMediaQuery("(min-width: 48em)");
   const isSmallScreen = !isMediumScreen;
   const [showMenu, setShowMenu] = useState(false);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const recipes = useAppSelector(
-    (state) => state.savedRecipesReducer.savedRecipes
-  );
   const location = useLocation();
   const currentPath = location.pathname;
   const menuRef = useRef<HTMLUListElement>(null);
@@ -133,64 +123,7 @@ const Navbar = () => {
             borderRadius="full"
             icon={<BiMoon />}
           /> */}
-          <CustomDrawer
-            title="Your Saved Recipes"
-            isOpen={isOpen}
-            onClose={onClose}
-            placement="right"
-            triggerButton={
-              <Button
-                onClick={onOpen}
-                variant="none"
-                fontSize="2xl"
-                me={2}
-                p={0}
-                border="1px solid"
-                borderColor="primary.500"
-                color="primary.500"
-                borderRadius="full"
-                position="relative"
-              >
-                <BiBookmark />
-                <Text
-                  width="20px"
-                  height="20px"
-                  borderRadius="50%"
-                  bg="primary.500"
-                  color="#fff"
-                  position="absolute"
-                  right="-5px"
-                  top="-9px"
-                  lineHeight="17px"
-                  border="1px solid"
-                  borderColor="primary.500"
-                  fontSize="sm"
-                  textAlign="center"
-                >
-                  {recipes.length}
-                </Text>
-              </Button>
-            }
-          >
-            <Flex gap={4} flexDirection="column">
-              {recipes.length === 0 ? (
-                <Text
-                  color="primary.500"
-                  fontWeight="medium"
-                  fontSize="lg"
-                  textAlign="center"
-                  pt={9}
-                >
-                  You Don't Have Any Saved Recipes Yet
-                </Text>
-              ) : (
-                recipes &&
-                recipes.map((recipe) => (
-                  <SavedItem recipe={recipe} key={recipe.idMeal} />
-                ))
-              )}
-            </Flex>
-          </CustomDrawer>
+          <SavedRecipes/>
           {isSmallScreen && (
             <IconButton
               aria-label="menu icon"
