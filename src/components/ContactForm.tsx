@@ -6,14 +6,14 @@ import {
   FormLabel,
   HStack,
   Input,
-  Textarea,
-  useToast,
+  Textarea
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
+import useCustomToast from "../utils/useCustomToast";
 const schema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -26,8 +26,8 @@ interface FormData {
 }
 
 const ContactForm = () => {
-  const toast = useToast();
-  const[isLoading,setIsLoading]=useState(false)
+  const { showCustomToast } = useCustomToast();
+  const [isLoading, setIsLoading] = useState(false);
   const serviceId: string = import.meta.env.VITE_SERVICE_ID;
   const templateId: string = import.meta.env.VITE_TEMPLATE_ID;
   const publicId: string = import.meta.env.VITE_PUBLIC_ID;
@@ -35,10 +35,10 @@ const ContactForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm<FormData>({ resolver: yupResolver(schema) });
   const onSubmit: SubmitHandler<FormData> = (data) => {
-    setIsLoading(true)
+    setIsLoading(true);
     emailjs
       .send(
         serviceId,
@@ -48,33 +48,29 @@ const ContactForm = () => {
       )
       .then(
         () => {
-          toast({
+          showCustomToast({
             title: "Message Sent Successfully",
             status: "success",
-            duration: 2000,
             position: "top-right",
-            isClosable: true,
           });
-          setIsLoading(false)
-          reset()
+          setIsLoading(false);
+          reset();
         },
         (error) => {
-          toast({
-            title: "Error",
-            description: error.text,
+          showCustomToast({
+            title: error.text,
             status: "error",
-            duration: 2000,
             position: "top-left",
-            isClosable: true,
           });
-          setIsLoading(false)
-        });
+          setIsLoading(false);
+        }
+      );
   };
   return (
     <Flex
       flexDirection="column"
       gap={3}
-      flex={{base:"1",md:"0.5"}}
+      flex={{ base: "1", md: "0.5" }}
       p={3}
       as="form"
       onSubmit={handleSubmit(onSubmit)}
@@ -84,12 +80,11 @@ const ContactForm = () => {
           <FormLabel htmlFor="Name" color="primary.500">
             Name
           </FormLabel>
-          <Input
+          <Input 
             type="text"
             placeholder="Enter Your Name"
             {...register("name")}
-            border="1px solid"
-            borderColor="primary.500"
+            borderRadius="lg"
           />
           <FormErrorMessage>
             {errors.name && errors.name.message}
@@ -99,12 +94,11 @@ const ContactForm = () => {
           <FormLabel htmlFor="email" color="primary.500">
             Email
           </FormLabel>
-          <Input
+          <Input 
             type="email"
             placeholder="Enter Your Email"
             {...register("email")}
-            border="1px solid"
-            borderColor="primary.500"
+            borderRadius="md"
           />
           <FormErrorMessage>
             {errors.email && errors.email.message}
