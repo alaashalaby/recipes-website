@@ -14,6 +14,8 @@
     "@emailjs/browser": "^4.3.3",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@fontsource/barlow": "^5.0.13",
+    "@fontsource/handlee": "^5.0.19",
     "@hookform/resolvers": "^3.4.2",
     "@reduxjs/toolkit": "^2.2.5",
     "framer-motion": "^11.2.4",
