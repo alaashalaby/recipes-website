@@ -12,7 +12,7 @@ import {
   SkeletonText
 } from "@chakra-ui/react";
 import FoodBG from "../assets/pattern.jpg";
-import bannerImg from "../assets/subheader.jpg";
+import bannerImg from "../assets/subheader.webp";
 import { useParams,Link as RouterLink } from "react-router-dom";
 import { BiHome, BiLinkExternal, BiMenu, BiPurchaseTag, BiWorld } from "react-icons/bi";
 import { useGetRecipeByIdQuery } from "../RTK/services/recipes";
