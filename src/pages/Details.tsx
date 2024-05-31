@@ -18,6 +18,7 @@ import { BiLinkExternal, BiMenu, BiPurchaseTag, BiWorld } from "react-icons/bi";
 import { useGetRecipeByIdQuery } from "../RTK/services/recipes";
 import Banner from "../components/Banner";
 import DetailsSkeleton from "../components/DetailsSkeleton";
+import useTitle from "../utils/useTitle";
 const DetailsContent = ({ recipeDetails }: { recipeDetails: Meal }) => {
   return (
     <Flex flexDirection="column" gap={3} flex="1">
@@ -89,6 +90,7 @@ const SubHeader = ({ title }: { title: string }) => {
   );
 };
 const Details = () => {
+  useTitle("Details");
   const { id } = useParams();
   if (!id) {
     throw new Error("No ID provided");

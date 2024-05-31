@@ -22,6 +22,7 @@ import { Link } from "react-router-dom";
 import RecipeSkeleton from "../components/RecipeSkeleton";
 import RecipeCard from "../components/RecipeCard";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import useTitle from "../utils/useTitle";
 interface Props {
   searchTerm: string;
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
@@ -118,6 +119,7 @@ const RecipesContainer = ({ searchTerm }: { searchTerm: string }) => {
   );
 };
 const Recipes = () => {
+  useTitle("Recipes");
   const [searchTerm, setSearchTerm] = useState("");
   const [debounceSearch, setDebounceSearch] = useState("");
   function debounce<T extends (...args: never[]) => void>(

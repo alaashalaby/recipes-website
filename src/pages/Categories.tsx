@@ -24,6 +24,7 @@ import FoodBG from "../assets/pattern.jpg";
 import RecipeSkeleton from "../components/RecipeSkeleton";
 import { useState } from "react";
 import CustomDrawer from "../components/CustomDrawer";
+import useTitle from "../utils/useTitle";
 const CategoriesContainer = () => {
   const { categoryName } = useParams();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -170,6 +171,7 @@ const CategoryItem = ({ recipe }: { recipe: CategoryMeal }) => {
 };
 
 const Categories = () => {
+  useTitle("Categories");
   return (
     <>
       <Banner bannerImg={bannerImg}>
