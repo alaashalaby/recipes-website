@@ -4,6 +4,8 @@ import {
   Heading,
   IconButton,
   Image,
+  LinkBox,
+  LinkOverlay,
   Text,
   useToast,
 } from "@chakra-ui/react";
@@ -24,48 +26,52 @@ const SavedItem = ({ recipe }: { recipe: Meal }) => {
     });
   };
   return (
-    <Flex
-      position="relative"
-      shadow="lg"
-      gap={3}
-      p={2}
-      align="center"
-      borderRadius="lg"
-      bg="primary.50"
-    >
-      <Image
-        src={recipe?.strMealThumb}
-        alt="recipe"
-        width="60px"
-        height="60px"
+    <LinkBox>
+      <Flex
+        position="relative"
+        shadow="lg"
+        gap={3}
+        p={2}
+        align="center"
         borderRadius="lg"
-      />
-      <Box sx={{ "*": { color: "secondary.700" } }}>
-        <Heading fontSize="lg" mb={1}>
-          {recipe?.strMeal}
-        </Heading>
-        <Text lineHeight="normal">
-          {recipe?.strCategory} - {recipe?.strArea}
-        </Text>
-      </Box>
-      <IconButton
-        aria-label="remove icon"
-        variant="none"
-        fontSize="2xl"
-        border="1px solid"
-        borderColor="primary.50"
-        color="primary.500"
-        borderRadius="full"
-        position="absolute"
-        top=" -10px"
-        right="-5px"
-        h="initial"
-        minW="unset"
-        p={0}
-        onClick={() => handleRemoveRecipe(recipe.idMeal)}
-        icon={<BiX />}
-      />
-    </Flex>
+        bg="primary.50"
+      >
+        <Image
+          src={recipe?.strMealThumb}
+          alt="recipe"
+          width="60px"
+          height="60px"
+          borderRadius="lg"
+        />
+        <LinkOverlay href={`/details/${recipe.idMeal}`}>
+          <Box sx={{ "*": { color: "secondary.700" } }}>
+            <Heading fontSize="lg" mb={1}>
+              {recipe?.strMeal}
+            </Heading>
+            <Text lineHeight="normal">
+              {recipe?.strCategory} - {recipe?.strArea}
+            </Text>
+          </Box>
+        </LinkOverlay>
+        <IconButton
+          aria-label="remove icon"
+          variant="none"
+          fontSize="2xl"
+          border="1px solid"
+          borderColor="primary.50"
+          color="primary.500"
+          borderRadius="full"
+          position="absolute"
+          top=" -10px"
+          right="-5px"
+          h="initial"
+          minW="unset"
+          p={0}
+          onClick={() => handleRemoveRecipe(recipe.idMeal)}
+          icon={<BiX />}
+        />
+      </Flex>
+    </LinkBox>
   );
 };
 export default SavedItem;
