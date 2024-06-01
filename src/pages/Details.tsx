@@ -28,7 +28,7 @@ const DetailsContent = ({ recipeDetails }: { recipeDetails: Meal }) => {
   return (
     <Flex flexDirection="column" gap={3} flex="1" ps={{base:5,md:5,lg:8}}>
       <Flex align="center" justifyContent="space-between" mb={1}>
-        <Heading as="h4" color="secondary.800" fontSize="3xl">
+        <Heading as="h1" color="secondary.800" fontSize="3xl">
           {recipeDetails?.strMeal}
         </Heading>
         <Button _hover={{ opacity: "0.9" }}>
@@ -114,7 +114,7 @@ const Details = () => {
   return (
     <>
       <Banner bannerImg={bannerImg}>
-        <Heading as="h1" zIndex={5} color="secondary.50">
+        <Heading as="h3" zIndex={5} color="secondary.50">
           Recipe Details
         </Heading>
       </Banner>
