@@ -8,7 +8,9 @@ const initialState: LatestRecipesProps = {
 export const getLatestRecipes = createAsyncThunk(
   "latestRecipes/getLatestRecipes",
   async () => {
-    const response = await fetch("http://localhost:3000/latestMeals");
+    const response = await fetch(
+      "https://latest-recipes.onrender.com/latestMeals"
+    );
     if (!response.ok) {
       throw new Error("Failed to Fetch Data");
     }
