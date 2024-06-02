@@ -27,48 +27,47 @@ This project is a website built with React that allows users to explore, search,
 To get started with this project, follow these steps:
 
 1. Clone the repository:
-
-```bash
-git clone https://github.com/alaashalaby/recipes-website.git
+   ```bash
+      git clone https://github.com/alaashalaby/recipes-website.git
 
 2. Install the dependencies:
 
 ```bash
+
 npm install
 ```
 
 3. Running in development:
 
 ```bash
-npm run dev
+   npm run dev
 ```
 
 - ### final_screen_of_projects
   - Home page
     
-    <img width="700" alt="Home Page" src="https://drive.google.com/file/d/1jcT76GAbejvGb-Z6NEB31JXgqR2s7Ma0/view?usp=drive_link">
-
+    <img src="https://github.com/alaashalaby/latest-recipes/blob/main/assets/Home%20Page.png" alt="Home Page">
 
   - Recipes Page
 
-    <img width="700" alt="Recipes Page" src="https://drive.google.com/file/d/1jk_4BOGr63NLiwSIA6a68UPj3J2ENspx/view?usp=drive_link">
+    <img src="https://github.com/alaashalaby/latest-recipes/blob/main/assets/Recipes%20Page.png" alt="Recipes Page">
 
 
   - Details Page
     
-      <img width="700" alt="Categories Page" src="https://drive.google.com/file/d/1jih6VF0YRFgQKiYvAbc4IrfNIcG6sB5y/view?usp=drive_link">  
+      <img src="https://github.com/alaashalaby/latest-recipes/blob/main/assets/Details%20Page.png" alt="Categories Page">  
 
 
   - Contact Page
     
-      <img width="700" alt="Contact Page" src="https://drive.google.com/file/d/1jTzRy5V5iVj-_J-YKs1mOFLYsRRwp9ac/view?usp=drive_link">
+      <img src="https://github.com/alaashalaby/latest-recipes/blob/main/assets/Contact%20Us%20Page.png" alt="Contact Page">
 
   
   - Categories Page
     
-      <img width="700" alt="Categories Page" src="https://drive.google.com/file/d/1jJJZC-JEWR9ndv7OzL87B0cUclSMbiLV/view?usp=drive_link">
+      <img src="https://github.com/alaashalaby/latest-recipes/blob/main/assets/Categories%20Page.png" alt="Categories Page">
 
 
   - 404 Page
     
-      <img width="700" alt="Categories Page" src="https://drive.google.com/file/d/1jqf1vXMmO8yphqyarbdsu-f2RKwA2wLi/view?usp=drive_link">  
+      <img src="https://github.com/alaashalaby/latest-recipes/blob/main/assets/404%20Page.png" alt="Categories Page">  
