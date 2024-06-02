@@ -30,7 +30,7 @@ To get started with this project, follow these steps:
    ```bash
       git clone https://github.com/alaashalaby/recipes-website.git
 
-2. Install the dependencies:
+3. Install the dependencies:
 
 ```bash
 
