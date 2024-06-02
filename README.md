@@ -28,10 +28,10 @@ To get started with this project, follow these steps:
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/alaashalaby/recipes-website.git
+   ```bash
+      git clone https://github.com/alaashalaby/recipes-website.git
 
-2. Install the dependencies:
+3. Install the dependencies:
 
 ```bash
 npm install
@@ -44,10 +44,7 @@ npm run dev
 ```
 
 - ### final_screen_of_projects
-  - Home page
-    
-    <img width="700" alt="Home Page" src="https://drive.google.com/file/d/1jcT76GAbejvGb-Z6NEB31JXgqR2s7Ma0/view?usp=drive_link">
-
+  ![Home Page](https://drive.google.com/file/d/1jcT76GAbejvGb-Z6NEB31JXgqR2s7Ma0/view?usp=drive_link)
 
   - Recipes Page
 
