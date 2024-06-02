@@ -1,30 +1,45 @@
-# React + TypeScript + Vite
+<h1 align="center">Recipes Website❤️</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a website built with React that allows users to explore, search, and bookmark recipes. It offers a seamless experience for anyone interested in discovering new meals and managing their favorite recipes. Below are the main features and functionalities of the website:
 
-Currently, two official plugins are available:
+### Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Recipe Search: Users can search for recipes by name, making it easy to find specific meals.
+- Categories: The website displays various recipe categories, allowing users to browse and explore different types of dishes.
+- Recipe Display by Category: Users can view recipes based on selected categories, facilitating the discovery of new meals within specific culinary themes.
+- Bookmarking Recipes: Users can bookmark their recipes, with the ability to save and remove them from localStorage for persistent access.
+- Recipe Details Page: Each recipe has a detailed page displaying cooking instructions, ingredients, and additional information to help users prepare the meal.
+- 404 Page: A custom 404 page to handle non-existent routes.
+- Contact Page: A contact form page integrated with Email.js for sending emails directly from the website.
 
-## Expanding the ESLint configuration
+### Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React: For building the user interface.
+- Redux Toolkit: For state management.
+- Chakra UI: For a modular and accessible component library.
+- TypeScript: For type safety and improved developer experience.
+- React Hook Form: For handling form state and validation.
+- Email.js: For handling contact form submissions.
+- LocalStorage API: For storing bookmarked recipes.
 
-- Configure the top-level `parserOptions` property like this:
+### Getting Started
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+To get started with this project, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/alaashalaby/recipes-website.git
+
+2. Install the dependencies:
+
+```bash
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+3. Running in development:
+
+```bash
+npm run dev
+```
+   
+   
